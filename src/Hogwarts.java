@@ -20,7 +20,15 @@ public class Hogwarts {
                 ", trancegrace=" + trancegrace +
                 '}';
     }
-
+    public static void getGreatStudentInHogwarts(Hogwarts n, Hogwarts m) {
+        int student1 = n.magicPower + n.trancegrace;
+        int student2 = m.magicPower + m.trancegrace;
+        if (student1 > student2) {
+            System.out.println(n.getName() + " лучший чел, чем " + m.getName());
+        } else {
+            System.out.println(m.getName() + " лучший чел, чем " + n.getName());
+        }
+    }
 
     public String getName() {
         return name;

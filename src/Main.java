@@ -34,6 +34,9 @@ public class Main {
         System.out.println();
         Cogtevran.getGreatStudentInCogtevran(padma, markus);
         System.out.println();
-        Hogwarts.getGreatStudentInHogwarts();
+        Hogwarts.getGreatStudentInHogwarts(padma, drako);
+        System.out.println();
+        germiona.setTrancegrace(85);
+        System.out.println(germiona);
     }
 }
