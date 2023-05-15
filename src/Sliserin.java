@@ -28,14 +28,22 @@ public class Sliserin extends Hogwarts{
                 "\n";
     }
 
-    public static void getGreatStudentInSliserin(Sliserin n, Sliserin m) {
-        int student1 = n.trick + n.determination + n.ambition + n.resourcefulness + n.lustForPower;
-        int student2 = m.trick + m.determination + m.ambition + m.resourcefulness + m.lustForPower;
-        if (student1 > student2) {
-            System.out.println(n.getName() + " лучший Слизериновец, чем " + m.getName());
-        } else {
-            System.out.println(m.getName() + " лучший Слизериновец, чем " + n.getName());
-        }
+    @Override
+    public int totalSoftSkills() {
+        return this.trick + this.determination + this.ambition + this.resourcefulness + this.lustForPower;
+    }
+
+    @Override
+    public void aboutStudent() {
+        System.out.println("Имя : " + getName() + "\n" + "Фамилия : " + getSurname());
+        System.out.println("Общие качества студента Хогвардса: " + "\n" + "Сила магии : " + getMagicPower() + "\n" + "Трансгрессия : " + getTrancegrace());
+        System.out.println("Качества студента Слизерина" + "\n" + "Хитрость : " + this.trick + "\n" + "Решительность : " + this.determination + "\n" + "Амбициозность : " + this.ambition + "\n" + "Находчивость : " + this.resourcefulness + "\n" + "Жажда власти : " + this.lustForPower);
+
+    }
+
+    @Override
+    public void resultCompare(String nameGood, String nameBad) {
+        System.out.print(String.format("%s лучший Слизериновец, чем %s", nameGood, nameBad));
     }
 
     public int getTrick() {

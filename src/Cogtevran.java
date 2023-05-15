@@ -25,14 +25,21 @@ public class Cogtevran extends Hogwarts{
                 "\n";
     }
 
-    public static void getGreatStudentInCogtevran(Cogtevran n, Cogtevran m) {
-        int student1 = n.smart + n.creative + n.wisdom + n.wit;
-        int student2 = m.smart + n.creative + m.wisdom + m.wit;
-        if (student1 > student2) {
-            System.out.println(n.getName() + " лучший Когтеврановец, чем " + m.getName());
-        } else {
-            System.out.println(n.getName() + " лучший Когтеврановец, чем " + m.getName());
-        }
+    @Override
+    public int totalSoftSkills() {
+        return this.smart + this.creative + this.wisdom + this.wit;
+    }
+
+    @Override
+    public void aboutStudent() {
+        System.out.println("Имя : " + getName() + "\n" + "Фамилия : " + getSurname());
+        System.out.println("Общие качества студента Хогвардса: " + "\n" + "Сила магии : " + getMagicPower() + "\n" + "Трансгрессия : " + getTrancegrace());
+        System.out.println("Качества студента Когтеврана" + "\n" + "Разум : " + this.smart + "\n" + "Творчество : " + this.creative + "\n" + "Мудрость : " + this.wisdom + "\n" + "Остроумие : " + this.wit);
+    }
+
+    @Override
+    public void resultCompare(String nameGood, String nameBad) {
+        System.out.print(String.format("%s лучший Когтеврановец, чем %s", nameGood, nameBad));
     }
 
     public int getSmart() {
