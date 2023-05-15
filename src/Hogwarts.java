@@ -1,4 +1,4 @@
-public class Hogwarts {
+public abstract class Hogwarts {
     private String name;
     private String surname;
     private int magicPower;
@@ -20,42 +20,58 @@ public class Hogwarts {
                 ", trancegrace=" + trancegrace +
                 '}';
     }
-    public static void getGreatStudentInHogwarts(Hogwarts n, Hogwarts m) {
-        int student1 = n.magicPower + n.trancegrace;
-        int student2 = m.magicPower + m.trancegrace;
-        if (student1 > student2) {
-            System.out.println(n.getName() + " лучший чел, чем " + m.getName());
+
+    public abstract int totalSoftSkills();
+
+    public abstract void aboutStudent();
+
+    public abstract void resultCompare(String nameGood, String nameBad);
+
+    public int totalHardSkills() {
+        return this.magicPower + this.trancegrace;
+    }
+
+    public void getGreatStudentInHogwarts(Hogwarts n) {
+        if (this.totalHardSkills() > n.totalHardSkills()) {
+            System.out.println(this.getName() + " лучший студент Хогвардса, чем " + n.getName());
+        } else if (this.totalHardSkills() < n.totalHardSkills()) {
+            System.out.println(n.getName() + " лучший студент Хогвардса, чем " + this.getName());
         } else {
-            System.out.println(m.getName() + " лучший чел, чем " + n.getName());
+            System.out.println("Волшебники равны по скиллам");
         }
     }
 
-    public String getName() {
+    public void compareStudents(Hogwarts n) {
+        if (this.getClass().getName().equals(n.getClass().getName())) {
+            if (this.totalSoftSkills() > n.totalSoftSkills()) {
+                resultCompare(this.getName(), n.getName());
+            } else if (this.totalSoftSkills() < n.totalSoftSkills()) {
+                resultCompare(n.getName(), this.getName());
+            } else {
+                System.out.println("Волшебники равны по скиллам");
+            }
+        }
+        else getGreatStudentInHogwarts(n);
+    }
+
+    protected String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
+    protected String getSurname() {
         return surname;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    protected int getMagicPower() {
+        return magicPower;
     }
 
-    public int getMagicPower() {
-        return magicPower;
+    protected int getTrancegrace() {
+        return trancegrace;
     }
 
     public void setMagicPower(int magicPower) {
         this.magicPower = magicPower;
-    }
-
-    public int getTrancegrace() {
-        return trancegrace;
     }
 
     public void setTrancegrace(int trancegrace) {

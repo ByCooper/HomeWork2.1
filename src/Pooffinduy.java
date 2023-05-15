@@ -22,14 +22,22 @@ public class Pooffinduy extends Hogwarts{
                 "\n";
     }
 
-    public static void getGreatStudentInPoofinduy(Pooffinduy n, Pooffinduy m) {
-        int student1 = n.industriousness + n.loyalty + n.honesty;
-        int student2 = m.industriousness + n.loyalty + m.honesty;
-        if (student1 > student2) {
-            System.out.println(n.getName() + " лучший Пуффиндуевиц, чем " + m.getName());
-        } else {
-            System.out.println(n.getName() + " лучший Пуффиндуевиц, чем " + m.getName());
-        }
+    @Override
+    public int totalSoftSkills() {
+        return this.industriousness + this.loyalty + this.honesty;
+    }
+
+    @Override
+    public void aboutStudent() {
+        System.out.println("Имя : " + getName() + "\n" + "Фамилия : " + getSurname());
+        System.out.println("Общие качества студента Хогвардса: " + "\n" + "Сила магии : " + getMagicPower() + "\n" + "Трансгрессия : " + getTrancegrace());
+        System.out.println("Качества студента Пуффендуя" + "\n" + "Трудолюбие : " + this.industriousness + "\n" + "Честность : " + this.loyalty + "\n" + "Верность : " + this.honesty);
+
+    }
+
+    @Override
+    public void resultCompare(String nameGood, String nameBad) {
+        System.out.print(String.format("%s лучший Пуффиндуевиц, чем %s", nameGood, nameBad));
     }
 
     public int getIndustriousness() {

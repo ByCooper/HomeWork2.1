@@ -1,5 +1,3 @@
-import java.util.Objects;
-
 public class Griffindor extends Hogwarts{
     private int nobility;
     private int honor;
@@ -22,14 +20,22 @@ public class Griffindor extends Hogwarts{
                 ", honor = " + honor +
                 ", bravery = " + bravery + "\n";
     }
-    public static void getGreatStudentInGriffindor(Griffindor n, Griffindor m) {
-        int student1 = n.bravery + n.honor + n.nobility;
-        int student2 = m.bravery + n.honor + m.nobility;
-        if (student1 > student2) {
-            System.out.println(n.getName() + " лучший Гриффиндоровец, чем " + m.getName());
-        } else {
-            System.out.println(m.getName() + " лучший Гриффиндоровец, чем " + n.getName());
-        }
+
+    @Override
+    public int totalSoftSkills() {
+        return this.nobility + this.honor + this.bravery;
+    }
+
+    @Override
+    public void aboutStudent() {
+        System.out.println("Имя : " + getName() + "\n" + "Фамилия : " + getSurname());
+        System.out.println("Общие качества студента Хогвардса: " + "\n" + "Сила магии : " + getMagicPower() + "\n" + "Трансгрессия : " + getTrancegrace());
+        System.out.println("Качества студента Гриффиндора" + "\n" + "Благородство : " + this.nobility + "\n" + "Честь : " + this.honor + "\n" + "Храбрость : " + this.bravery);
+    }
+
+    @Override
+    public void resultCompare(String nameGood, String nameBad) {
+        System.out.print(String.format("%s лучший Гриффиндоровец, чем %s", nameGood, nameBad));
     }
 
     public int getNobility() {
